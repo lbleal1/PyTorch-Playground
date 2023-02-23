@@ -1,38 +1,16 @@
 import torch
-
-torch.manual_seed(1)
-
-# weight and bias
-weight = torch.randn(1)
-weight.requires_grad_()
-bias = torch.zeros(1, requires_grad = True)
+import torch.nn as nn
 
 # model
-def model(xb):
-    return xb @ weight + bias 
+class Model(nn.Module):
+    def __init__(self, input_size, hidden_size, output_size):
+        super().__init__()
+        self.layer1 = nn.Linear(input_size, hidden_size)
+        self.layer2 = nn.Linear(hidden_size, output_size)
 
-# MSE loss
-def loss_fn(input, target):
-    return(input-target).pow(2).mean()
-
-# training + SGD
-learning_rate = 0.001
-num_epochs = 200
-log_epochs = 10
-
-for epoch in range(num_epochs):
-
-    for x_batch, y_batch in train_dl:
-        pred = model(x_batch)
-        loss = loss_fn(pred, y_batch)
-        loss.backward()
-    
-    # SGD - optimizer - for weight and bias update
-    with torch.no_grad():
-        weight -= weight.grad * learning_rate
-        bias -= bias.grad * learning_rate
-        weight.grad.zero_()
-        bias.grad.zero_()
-    
-    if epoch % log_epochs == 0:
-        print(f'Epoch {epoch}   Loss {loss.item():.4f}')
+    def forward(self, x):
+        x = self.layer1(x)
+        x = nn.Sigmoid()(x)
+        x = self.layer2(x)
+        x = nn.Softmax(dim=1)(x)
+        return x

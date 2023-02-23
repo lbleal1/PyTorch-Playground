@@ -109,21 +109,11 @@ print(f'Test Acc.: {accuracy:.4f}')
 
 ## save and reloading the trained model
 
-# save
+# save whole model
 path = 'iris_classifier.pt'
 torch.save(model, path)
 
-# load
-model_new = torch.load(path)
+# save model params only
+path_params = 'iris_classifier_params.pt'
+torch.save(model.state_dict(), path_params)
 
-# verify model architecture
-model_new.eval()
-
-## test saved model
-# pred
-pred_test = model_new(X_test_norm)
-
-# calculate accuracy
-correct = (torch.argmax(pred_test, dim=1) == y_test).float()
-accuracy = correct.mean()
-print(f'Test Acc.: {accuracy:.4f}')
