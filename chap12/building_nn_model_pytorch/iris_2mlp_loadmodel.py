@@ -1,3 +1,13 @@
+'''
+notes:
+- the model class should either be:
+* inline - in the same code file 
+* external - as imported class
+
+It will not work if we just use load since 
+it will not find the model class
+'''
+
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 
@@ -8,7 +18,7 @@ from torch.utils.data import TensorDataset, DataLoader
 
 import numpy as np
 
-from model import Model
+from model import Model # imported model class
 
 # data 
 iris = load_iris()
