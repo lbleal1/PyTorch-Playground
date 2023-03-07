@@ -8,6 +8,8 @@ from torch.utils.data import TensorDataset, DataLoader
 
 import numpy as np
 
+from model import Model
+
 # data 
 iris = load_iris()
 
@@ -32,9 +34,11 @@ class Model(nn.Module):
     def forward(self, x):
         x = self.layer1(x)
         x = nn.Sigmoid()(x)
+        print(x)
         x = self.layer2(x)
         x = nn.Softmax(dim=1)(x)
         return x
+
 
 input_size = X_test_norm.shape[1]
 hidden_size = 16
