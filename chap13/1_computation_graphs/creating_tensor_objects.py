@@ -20,8 +20,7 @@ print(b)
 
 print()
 
-# example 2 - list
-a = torch.tensor([1.0, 2.0, 3.0], requires_grad = True)
+# example 2 - lista = torch.tensor([1.0, 2.0, 3.0], requires_grad = True)
 print('now a is a list:')
 print(a)
 print()
