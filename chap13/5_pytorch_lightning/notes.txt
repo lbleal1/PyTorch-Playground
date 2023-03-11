@@ -1,0 +1,9 @@
+Pytorch Lightning
+- builds on top of PyTorch
+
+Advantages
+1. Simpler code 
+- avoiding boilerplate code
+
+2. Use of many advanced features
+e.g. multi-GPU suppport and fast low-precision training
