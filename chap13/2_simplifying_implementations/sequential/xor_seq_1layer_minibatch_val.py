@@ -1,3 +1,14 @@
+'''
+Using mini-batch will:
+- NOT alter the results (see properties of summation)
+- will only help the RAM
+
+* implemented mini-batch for both TRAINING and VALIDATION
+
+* validation results were compared with the version using the 
+whole dataset - see xor_seq_1layer.py
+'''
+
 import torch
 import torch.nn as nn
 
@@ -40,10 +51,14 @@ plt.xlabel(r'$x_1$', size = 15)
 plt.ylabel(r'$x_2$', size = 15)
 #plt.show()
 
-# data loader
+# data loader - for minibatch
 train_ds = TensorDataset(x_train, y_train)
 batch_size = 2
 train_dl = DataLoader(train_ds, batch_size, shuffle = True)
+
+valid_ds = TensorDataset(x_valid, y_valid)
+batch_size = 2
+valid_dl = DataLoader(valid_ds, batch_size, shuffle = False) # do not shuffle
 
 #######################     MODEL   ##########################
 # model 1 - baseline - simple linear regression
@@ -70,7 +85,7 @@ def train(model, num_epochs, train_dl, x_valid, y_valid):
 
     # train start
     for epoch in range(num_epochs):
-        # batch proc
+        # train - mini-batch version
         for x_batch, y_batch in train_dl:
             pred = model(x_batch)[:,0] # forward pass
             loss = loss_fn(pred, y_batch) # calc loss
@@ -84,19 +99,25 @@ def train(model, num_epochs, train_dl, x_valid, y_valid):
             is_correct = ( (pred >= 0.5).float() == y_batch).float()
             accuracy_hist_train[epoch] += is_correct.mean()
 
-        # normalize 
+        # train - normalize
         # total number of mini-batches = n_train / batch_size 
         loss_hist_train[epoch] /= n_train/batch_size
         accuracy_hist_train[epoch] /= n_train/batch_size
         
-        # validation - use whole dataset
-        pred = model(x_valid)[:, 0]
-        loss = loss_fn(pred, y_valid)
+        # validation - mini-batch version
+        for x_batch, y_batch in valid_dl: 
+            pred = model(x_batch)[:, 0]
+            loss = loss_fn(pred, y_batch)
         
-        loss_hist_valid[epoch] = loss.item()
-        is_correct = ( (pred>= 0.5).float() == y_valid).float()
-        accuracy_hist_valid[epoch] += is_correct.mean()
-        
+            loss_hist_valid[epoch] += loss.item()
+            is_correct = ( (pred>= 0.5).float() == y_batch).float()
+            accuracy_hist_valid[epoch] += is_correct.mean()
+
+        # valid - normalize
+        # total number of mini-batches = n_train / batch_size 
+        loss_hist_valid[epoch] /= n_train/batch_size
+        accuracy_hist_valid[epoch] /= n_train/batch_size
+
     return loss_hist_train, loss_hist_valid, \
            accuracy_hist_train, accuracy_hist_valid
 
