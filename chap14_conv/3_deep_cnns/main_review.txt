@@ -1,0 +1,64 @@
+Workflow: Dataset from torchvision.datasets
+Objective:
+- to learn the workflow of using pytorch given image datasets and convnets
+
+
+Part 1: Data
+1. load data to train/valid/test splits
+   - includes download, transform
+   1.1 load train data  
+        - then split to train/valid using Subset from torch.utils.data
+   1.2 load test data
+2. put to DataLoader
+    - includes batch_size and shuffle
+
+Part 2: Model Structure
+
+Part 3: Config GPU
+
+Part 4: Loss and Optimizer
+
+Part 5: def train 
+1. list the trackers for loss and acc for both train and valid
+2. for each epoch 
+    * use model.train() and model.eval() + with torch.no_grad() for controlling dropout behavior
+    2.1 go over train data 
+        - put the data to gpu 
+        - feedforward
+        - compute loss
+        - backprop
+        - optimizer step 
+        - zero grad for optimizer
+
+        - update loss tracker (may multiply the num of batch for later normalization)
+        - update accuracy accumulator - put results to cpu for later plotting
+
+    - normalize train loss tracker
+    - normalize accuracy accumulator
+
+    2.2 go over valid data
+        - put the data to gpu
+        - feedforward
+        - compute loss
+
+        - update loss tracker (may multiply the num of batch for later normalization)
+        - update accuracy accumulator - put results to cpu for later plotting
+
+    - normalize valid loss tracker
+    - normalize accuracy accumulator
+
+    2.3 report per epoch the train acc, valid acc (can also add loss)
+3. Return trackers for loss and acc for both train and valid (for visualization)
+
+Part 6: num_epochs and train 
+
+Part 7: visualize hist
+
+Part 8: Test 
+1. DataLoader for Test
+* executing prediction using GPU 
+2. for each mini-batch
+    - put data to gpu 
+    - feedforward
+    - compute accuracy accumulator
+3. display accuracy (don't forget to divide by total number of test samples)
