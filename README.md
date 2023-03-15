@@ -1,6 +1,13 @@
-# pytorch-playground
+# PyTorch Playground
 
-This will cover my code experiments for studying PyTorch.
+This will cover my code experiments, recipes, and helpful resources for PyTorch.
 
-Resource(s): (rolling)
+-----
+Basic PyTorch 
 * Machine Learning with PyTorch and Scikit-Learn (Sebastian Rashcka et al)
+- covers fundamentals of PyTorch (intro, common workflows)
+- creating models from scratch
+
+-----
+Advanced PyTorch
+* Deep Learning with PyTorch (Eli Stevens et al)
