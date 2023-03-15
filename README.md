@@ -23,3 +23,4 @@ Advanced PyTorch
 By Topic
 * Ablations, Accessing and Modifying Different Layers of a Pretrained Model in PyTorch
   * [ConvNets - Accessing and Modifying Different Layers of a Pretrained Model in PyTorch by Morteza Mohammady Gharasuie](https://github.com/mortezamg63/Accessing-and-modifying-different-layers-of-a-pretrained-model-in-pytorch/blob/master/README.md)
+  * [How to modify a pretrained model](https://discuss.pytorch.org/t/how-to-modify-a-pretrained-model/60509/2)
