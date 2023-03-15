@@ -2,6 +2,8 @@
 
 This will cover my code experiments, recipes, and helpful resources for PyTorch.
 
+
+## Resources
 -----
 Basic PyTorch 
 * Machine Learning with PyTorch and Scikit-Learn (Sebastian Rashcka et al)
