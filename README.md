@@ -6,7 +6,12 @@ This will cover my code experiments, recipes, and helpful resources for PyTorch.
 Basic PyTorch 
 * Machine Learning with PyTorch and Scikit-Learn (Sebastian Rashcka et al)
   * covers fundamentals of PyTorch (intro, common workflows)
-  * working with models created from scratch
+  * working with models created from scratch (nn.Sequential and subclassing nn.Module)
+  * **highlights:** lightning API, tensorboard 
+
+By Topic
+* Loading Local Data and Fine-tuning Pre-trained Models
+  * [Chap6 of Zero to Mastery Learn PyTorch for Deep Learning (Daniel Bourke)](https://www.learnpytorch.io/06_pytorch_transfer_learning/)
 
 -----
 Advanced PyTorch
