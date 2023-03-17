@@ -22,5 +22,7 @@ Advanced PyTorch
 
 By Topic
 * Ablations, Accessing and Modifying Different Layers of a Pretrained Model in PyTorch
-  * [ConvNets - Accessing and Modifying Different Layers of a Pretrained Model in PyTorch by Morteza Mohammady Gharasuie](https://github.com/mortezamg63/Accessing-and-modifying-different-layers-of-a-pretrained-model-in-pytorch/blob/master/README.md)
+  * [ConvNets - Accessing and Modifying Different Layers of a Pretrained Model in PyTorch (Morteza Mohammady Gharasuie)](https://github.com/mortezamg63/Accessing-and-modifying-different-layers-of-a-pretrained-model-in-pytorch/blob/master/README.md)
   * [How to modify a pretrained model](https://discuss.pytorch.org/t/how-to-modify-a-pretrained-model/60509/2)
+* Hooks, PyTorch Lightning, Quantization, Pruning, and TorchScript+JIT
+  * [5 Advanced PyTorch Tools to Level up Your Workflow (Tivadar Danka)](https://towardsdatascience.com/5-advanced-pytorch-tools-to-level-up-your-workflow-d0bcf0603ad5)
