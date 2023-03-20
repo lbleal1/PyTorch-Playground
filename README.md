@@ -11,13 +11,18 @@ Basic PyTorch
   * working with models created from scratch (nn.Sequential and subclassing nn.Module)
   * **highlights:** lightning API, tensorboard 
 
+* Deep Learning with PyTorch (Eli Stevens et al)
+  * explains the basic PyTorch modules and their connection to ML concepts
+  * Torch Hub - a standardized way to load models and weights from any project
+with an appropriate hubconf.py file (Chap 2.4)
+
 By Topic
 * Loading Local Data and Fine-tuning Pre-trained Models
   * [Chap6 of Zero to Mastery Learn PyTorch for Deep Learning (Daniel Bourke)](https://www.learnpytorch.io/06_pytorch_transfer_learning/)
 
 -----
 Advanced PyTorch
-* Deep Learning with PyTorch (Eli Stevens et al)
+
 
 
 By Topic
