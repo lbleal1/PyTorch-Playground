@@ -21,6 +21,6 @@ def custom_model():
     and returns the model 
     """
     # load
-    path = 'torch_hub\iris_classifier.pt'
+    path = 'iris_classifier.pt'
     model = torch.load(path)
     return model
