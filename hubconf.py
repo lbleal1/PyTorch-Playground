@@ -1,5 +1,4 @@
-import torch
-import torch.nn as nn
+dependencies = ['torch']
 
 def custom_model():
     """ # This docstring shows up in hub.help()
